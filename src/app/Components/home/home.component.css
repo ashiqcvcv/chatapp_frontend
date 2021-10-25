@@ -1,0 +1,7 @@
+.homebg {
+    background : url('../../../assets/home.jpg')no-repeat center;
+    /* width : 100vw; */
+    /* background-size:unset; */
+    height: 75vh; 
+    /* background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); */
+  }

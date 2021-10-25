@@ -1,0 +1,38 @@
+<div class="container-fluid min-vh-100">
+    <ul class="list-unstyled chat">
+        <div *ngFor='let message of activeRoute?.messages'>
+            <li class="d-flex justify-content-between mb-4" *ngIf="message.sndr != myname">
+                <img src="../../assets/avatar.jpg" alt="avatar"
+                    class="avatar rounded-circle d-flex align-self-start mr-2 z-depth-1">
+                <div class="chat-body white p-3 ml-2 z-depth-1">
+                    <div class="header">
+                        <strong class="primary-font">{{ message.sndr }}</strong>
+                    </div>
+                    <hr class="w-100">
+                    <p class="mb-0">{{ message.chat }}</p>
+                </div>
+            </li>
+            <li class="d-flex justify-content-between mb-4" *ngIf="message.sndr == myname">
+                <div class="chat-body white p-3 z-depth-1">
+                    <div class="header">
+                        <strong class="primary-font">Me</strong>
+                    </div>
+                    <hr class="w-100">
+                    <p class="mb-0">{{ message.chat }}</p>
+                </div>
+                <img src="../../assets/avatar.jpg" alt="avatar"
+                    class="avatar rounded-circle d-flex align-self-start ml-2 z-depth-1">
+            </li>
+        </div>
+        <div *ngIf='activeRoute?.name != ""'>
+            <li class="white">
+                <div class="form-group basic-textarea">
+                    <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3"
+                        placeholder="Type your message here..." [formControl]="newmessage"></textarea>
+                </div>
+            </li>
+            <button type="button" mdbBtn color="info" rounded="true" size="sm"
+                class="waves-effect waves-light float-right" (click)="sendMessage()">Send</button>
+        </div>
+    </ul>
+</div>

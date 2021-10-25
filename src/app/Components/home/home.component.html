@@ -1,0 +1,45 @@
+<div class="homebg">
+    <div class="row mt-5">
+        <div class="col-lg-6">
+            <h1 class="ml-5 font-weight-bold">Anonymous Chat App</h1>
+        </div>
+        <div class="col-lg-6 float-right">
+            <h3 *ngIf='!this.myname; else usernamedet'>Please select a user name</h3>
+            <ng-template #usernamedet>
+                <h3>{{this.myname}} is your user name</h3>
+            </ng-template>
+        </div>
+
+    </div>
+    <!-- change user icon -->
+
+    <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+        (click)="changeModal.show()" mdbWavesEffect>Change User Name</button>
+
+    <div mdbModal #changeModal class="modal fade left" id="changeModal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Change Your user name</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="changeModal.hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                        <input type="text" [formControl]="newname" class="form-control" mdbInput mdbValidate>
+                        <label for="defaultForm-email">Your User Name</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="changeName()"
+                        (click)="changeModal.hide()">Change</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- change user icon -->
+</div>
